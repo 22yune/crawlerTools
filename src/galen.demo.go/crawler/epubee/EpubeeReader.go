@@ -437,8 +437,13 @@ func Retrieve(bookName string,distinct bool,fileName string,download bool){
 	books,ok := Search(bookName,filter)
 	fmt.Println("查询结束.耗时" + time.Since(start).String())
 	if ok {
-		fmt.Println(books)
-		ioutil.WriteFile(fileName,[]byte(fmt.Sprint(books)),os.ModePerm)
+		rs := "";
+		for _,book := range *books {
+			rs += book.String();
+			rs += "\n";
+		}
+		fmt.Println(rs)
+		ioutil.WriteFile(fileName,[]byte(rs),os.ModePerm)
 	}else {
 		fmt.Errorf("失败")
 	}

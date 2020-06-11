@@ -55,3 +55,6 @@ func TestReadBook(t *testing.T) {
 func TestSearch(t *testing.T) {
 	fmt.Println(Search("深入理解计算机系统",nil))
 }
+func TestRetrieve(t *testing.T) {
+	Retrieve("深入理解计算机系统",true,"test.txt",false)
+}
